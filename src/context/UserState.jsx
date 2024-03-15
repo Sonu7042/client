@@ -3,12 +3,11 @@ import UserContext from './UserContext'
 
 const UserState = ({ children }) => {
 
-  const host = "http://localhost:9000"
+  const host = "https://server-lgtk.onrender.com"
 
   const [text, setText] = useState([])
+  // console.log(text)
 
-
- 
 
 
 
@@ -20,14 +19,16 @@ const UserState = ({ children }) => {
       }
     })
     const json = await response.json()
+    // console.log(json)
    
     
 
     const newdata = json.map((item) => ({
-      id: item.id,
-      name: item.name,
-      email: item.email,
-      password: item.password
+      id:item.ID,
+      name: item.Name,
+      email: item.Email,
+      password: item.Password,
+      
     }))
 
     setText(newdata)
@@ -37,7 +38,7 @@ const UserState = ({ children }) => {
 
 
   const createUser = async (name, email, password) => {
-    // console.log(name, email, password)
+    // console.log(firstname, lastname, age)
     const response = await fetch(`${host}/create`, {
       method: "POST",
       headers: {
@@ -49,7 +50,6 @@ const UserState = ({ children }) => {
     const json = await response.json()
     getdata()
 
-
     setText(text.concat(json))
   }   
 
@@ -58,6 +58,8 @@ const UserState = ({ children }) => {
 
 
   const deleteuser = async (id) => {
+    console.log(id)
+    
     const response = await fetch(`${host}/delete/${id}`, {
       method: "GET",
       headers: {
@@ -86,7 +88,7 @@ const UserState = ({ children }) => {
 // this logic is for front update note
     for(let index=0; index<newNote.length; index++){
       const element = newNote[index]
-      if (element.id === id) {
+      if (element.id === id){
         newNote[index].name = name
         newNote[index].email = email
         newNote[index].password = password

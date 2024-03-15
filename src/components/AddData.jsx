@@ -4,6 +4,7 @@ import UserContext from '../context/UserContext'
 
 const AddData = () => {
     const [data,setData]=useState({name:"", email:"", password:""})
+    // console.log(data)
     
 
     const context=useContext(UserContext)
@@ -26,18 +27,18 @@ const AddData = () => {
         <div className='mt-4 mb-4'>
             <form onSubmit={handleSumit}>
                 <div className="mb-3">
-                    <label htmlFor="name" className="form-label">name</label>
+                    <label htmlFor="name" className="form-label">Name</label>
                     <input type="text" className="form-control" name='name' id="name" aria-describedby="emailHelp" onChange={onchange}/>   
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="email" className="form-label">email</label>
+                    <label htmlFor="email" className="form-label">Email</label>
                     <input type="email" className="form-control" name='email' id="email" onChange={onchange}/>
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="password" className="form-label">password</label>
-                    <input type="password" className="form-control" name='password' id="password" onChange={onchange}/>
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input type="passaword" className="form-control" name='password' id="password" onChange={onchange}/>
                 </div>
 
                

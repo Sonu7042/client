@@ -87,13 +87,18 @@ const Notes = () => {
 
             <div className="row container">
                 {text.map((item) => {
-                    return (
-                    < Card update={update} key={item.id} item={item} />
-                      
-                    )
-                }
 
-                )}
+                    return (
+
+                        < Card key={item.id} update={update} item={item} />
+
+                    )
+                })}
+
+
+
+
+
             </div>
         </>
     )
